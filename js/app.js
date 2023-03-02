@@ -1,13 +1,17 @@
- const loadApi = () =>{
+ const loadApi = (dataLimit) =>{
      const url = `https://openapi.programming-hero.com/api/ai/tools`
      fetch(url)
      .then(res => res.json())
-     .then(data => showData(data.data.tools))
+     .then(data => showData(data.data.tools, dataLimit))
  }
 //  show 6 display data
-     const showData =(data)=>{
-          // console.log(data)
+     const showData =(data, dataLimit)=>{
+          console.log(data.length)
           const displayData = document.getElementById('displayData')
+          if(dataLimit && data.length >= 6){
+               data = data.slice(0,6)
+          }
+          displayData.innerHTML = ' ';
           data.forEach(element => {
                // console.log(element);
                displayData.innerHTML +=`
@@ -47,18 +51,13 @@
      }
      // show modal 
      const modalDisplay = (data)=>{
-          console.log(data.features[1].feature_name)
-          
-          
-           
-          
-
+          console.log(data)
           const body = document.getElementById('modal-body');
           body.innerHTML = " ";
           body.innerHTML +=`
-          <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-6 border-light-subtle border bg-light bg-gradient">
+          <div class="container">
+          <div class="row g-2">
+            <div class="col-6 border-light-subtle border bg-light bg-gradient">
             <p class="card-text text-center fw-bold"> ${data.description}</p>
             <div class="d-flex align-items-around mx-auto">
             <div class="border mx-3 ">
@@ -96,8 +95,8 @@
         </div>
             
             </div>
-            <div class="col-md-6 ms-auto"> 
-            
+            <div class="col-5 ms-auto border "> 
+            <img " src="${data.image_link[0]}" alt="" style="width: 250px; height: 200px;">
             
             
             
@@ -108,7 +107,11 @@
           `;
      }
 
- loadApi();
+     document.getElementById('seeMore').addEventListener('click',function(){
+          
+          loadApi()
+     })
+     loadApi(12);
  
                                         
                                        
