@@ -32,7 +32,7 @@ const loadApi = (dataLimit) =>{
                     <h4 class="">${element.name}</h4>
                     <div class=" d-flex justify-content-between">
                     <div>
-                    <h6>${element.published_in}</h6>
+                    <h6> <li class="far fa-calendar-alt"></li>  ${element.published_in}</h6>
                     </div>
                     <span title="show Details" class="fs-3" onclick="singleDitals('${element.id}')" data-bs-toggle="modal" data-bs-target="#staticBackdrop">&#187;</span>
                      
