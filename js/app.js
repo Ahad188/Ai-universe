@@ -1,8 +1,13 @@
+ let obj;
 const loadApi = (dataLimit) =>{
      const url = `https://openapi.programming-hero.com/api/ai/tools`
      fetch(url)
      .then(res => res.json())
-     .then(data => showData(data.data.tools, dataLimit))
+     .then(data =>{
+           showData(data.data.tools, dataLimit)
+           obj = data.data.tools
+          })
+
  }
 //  show 6 display data
      const showData =(data, dataLimit)=>{
@@ -120,6 +125,15 @@ const loadApi = (dataLimit) =>{
           }else{
                loder.classList.add('d-none')
           }
-          
+
       }
      
+      document.getElementById('sort').addEventListener('click',function(){
+           sortData(obj)
+          })
+          
+          function sortData (data){
+               data.sort((a,b)=> new Date(a.published_in) - new Date(b.published_in))
+               showData(data)
+
+      }
