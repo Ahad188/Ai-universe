@@ -120,5 +120,6 @@ const loadApi = (dataLimit) =>{
           }else{
                loder.classList.add('d-none')
           }
+          
       }
      
