@@ -7,8 +7,7 @@ const loadApi = (dataLimit) =>{
            showData(data.data.tools, dataLimit)
            obj = data.data.tools
           })
-
- }
+     }
 //  show 6 display data
      const showData =(data, dataLimit)=>{
            
@@ -60,7 +59,6 @@ const loadApi = (dataLimit) =>{
           const body = document.getElementById('modal-body');
           body.innerHTML = " ";
           body.innerHTML +=`
-
           <div class="contaoner">
                <div class="row">
                     <div class="col-10 col-md-6 mx-auto">
@@ -110,24 +108,10 @@ const loadApi = (dataLimit) =>{
                     </div>
                </div>
           </div>
-
-
-
-
-
- 
-         
-               
-                
-           
-          
-        
-          
           `;
      }
 
      document.getElementById('seeMore').addEventListener('click',function(){
-          
           loadApi()
           spiner(true)
      })
@@ -140,7 +124,6 @@ const loadApi = (dataLimit) =>{
           }else{
                loder.classList.add('d-none')
           }
-
       }
      
       document.getElementById('sort').addEventListener('click',function(){
@@ -150,5 +133,4 @@ const loadApi = (dataLimit) =>{
           function sortData (data){
                data.sort((a,b)=> new Date(a.published_in) - new Date(b.published_in))
                showData(data)
-
-      }
+          }
