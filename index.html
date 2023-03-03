@@ -15,13 +15,24 @@
                margin: 0 auto;
                padding: 10px;
           }
+          #card-p{
+               position: relative;
+          }
+          .accuracy{
+               position: absolute;
+               top: 5px;
+               left: 80%;
+               padding: 3px;
+               border-radius: 5px;
+               border: 2px solid gray;color: red;
+          }
      </style>
 </head>
-<body>
+<body onload="spiner(true)">
      <header class="container">
           <h3 class="text-center mt-5 text-success">Ai Universe Hub</h3>
           <div class="container sort">
-               <button type="button" class="btn btn-outline-success mt-3">Sort-By-Data</button>
+               <button type="button" id="sort" class="btn btn-outline-success mt-3">Sort-By-Data</button>
           </div>
      </header>
      <!-- main -->
@@ -36,7 +47,7 @@
    
    <!-- Modal -->
    <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-     <div class="modal-dialog modal-xl">
+     <div class="modal-dialog">
        <div class="modal-content" >
          <div class="modal-header">
             
@@ -51,7 +62,7 @@
 
      <!-- seAll data btn -->
      <section>
-          <div class="container sort">
+          <div class="container sort" >
                <button id="seeMore" type="button" class="btn btn-outline-success mt-3">See More</button>
           </div>
      </section>
@@ -59,9 +70,14 @@
 
 
  
-
-
-
+<!-- load spiner -->
+<section id="loder" class="d-none container ms-auto">
+     <div class="text-center">
+          <div class="spinner-border text-dark" role="status">
+               <span class="visually-hidden">Loading...</span>
+             </div>
+     </div>
+</section>
 
 
 
