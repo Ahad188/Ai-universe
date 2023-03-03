@@ -60,54 +60,69 @@ const loadApi = (dataLimit) =>{
           const body = document.getElementById('modal-body');
           body.innerHTML = " ";
           body.innerHTML +=`
-               <div class="card" style="width: 28rem;">
-               <div class="card-body">
-               <p class="card-text"> <p class="card-text text-center fw-bold"> ${data.description}</p></p>
-               <div class="d-flex align-items-around mx-auto">
-               <div class="border mx-3 ">
-                    <h6 class="p-2 text-center text-success"> ${data.pricing[0].plan}</h6>
-                    <span class="p-2 text-center text-success">${data.pricing[0].price}</span>
-               </div>
-               <div class="border mx-3">
-                    <h6 class="p-2 text-center text-danger-emphasis">${data.pricing[1].plan}</h6>
-                    <span class="p-2 text-center text-danger-emphasis">${data.pricing[1].price}</span>
-               </div>
-               <div class="border">
-                    <h6 class="p-1 text-center text-info-emphasis">${data.pricing[2].plan}</h6>
-                    <span class="p-2 text-center text-info-emphasis">${data.pricing[2].price}</span>
-               </div>
-            </div>
-            <div class="d-flex">
-         <ul class="text-mute">
-         <h5>Features</h5> <br/>
-                   <li>${data.features[1].feature_name}</li>
-                   <li>${data.features[2].feature_name}</li>
-                   <li>${data.features[3].feature_name}</li>  
-          </ul>
-              <ul class = "text-muted">
-              <h5>Intergations</h5> <br/>
-                   <li>${data.integrations[0]}</li>
-                   <li>${data.integrations[1]}</li>
-                   <li>${data.integrations[2]}</li> 
-              </ul>
+
+          <div class="contaoner">
+               <div class="row">
+                    <div class="col-10 col-md-6 mx-auto">
+                    <div class="card-body">
+                    <p class="card-text"> <p class="card-text text-center fw-bold"> ${data.description}</p></p>
+                    <div class="d-flex align-items-around mx-auto">
+                    <div class="border mx-3 ">
+                         <h6 class="p-2 text-center text-success"> ${data.pricing[0].plan}</h6>
+                         <span class="p-2 text-center text-success">${data.pricing[0].price}</span>
                     </div>
+                    <div class="border mx-3">
+                         <h6 class="p-2 text-center text-danger-emphasis">${data.pricing[1].plan}</h6>
+                         <span class="p-2 text-center text-danger-emphasis">${data.pricing[1].price}</span>
+                    </div>
+                    <div class="border">
+                         <h6 class="p-1 text-center text-info-emphasis">${data.pricing[2].plan}</h6>
+                         <span class="p-2 text-center text-info-emphasis">${data.pricing[2].price}</span>
+                    </div>
+                 </div>
+                 <div class="d-flex">
+              <ul class="text-mute">
+              <h5>Features</h5> <br/>
+                        <li>${data.features[1].feature_name}</li>
+                        <li>${data.features[2].feature_name}</li>
+                        <li>${data.features[3].feature_name}</li>  
+               </ul>
+                   <ul class = "text-muted">
+                   <h5>Intergations</h5> <br/>
+                        <li>${data.integrations[0]}</li>
+                        <li>${data.integrations[1]}</li>
+                        <li>${data.integrations[2]}</li> 
+                   </ul>
                          </div>
+                              </div>
                     </div>
+                    <div class="col-10 col-md-6 mx-auto">
+                    <div class="card mt-3" style="width: 28rem;">
+                         <img src="${data.image_link[0]}" class="card-img-top" alt="...">
+                         <div class="card-body">
+                         <p class="card-text">${data.input_output_examples ? data.input_output_examples[0].input : 'No! Not Yet! Take break!!!'}</p>
+                         <p class="card-text">${data.input_output_examples ? data.input_output_examples[0].output : 'No! Not Yet! Take break!!!'}</p>
+                         
+                         </div>
+                         <div class="accuracy">${(data.accuracy.score !== null) ? `<button>${Math.floor(data.accuracy.score * 100)}% accracy</button>` : " " }</div>
+                    </div>
+                    
                     </div>
                </div>
-               </div> 
-               </div>
-             </div>
-             <div class="card mt-3" style="width: 28rem;">
-               <img src="${data.image_link[0]}" class="card-img-top" alt="...">
-               <div class="card-body">
-                 <p class="card-text">${data.input_output_examples ? data.input_output_examples[0].input : 'No! Not Yet! Take break!!!'}</p>
-                 <p class="card-text">${data.input_output_examples ? data.input_output_examples[0].output : 'No! Not Yet! Take break!!!'}</p>
-                  
-               </div>
-               <div class="accuracy">${(data.accuracy.score !== null) ? `<button>${Math.floor(data.accuracy.score * 100)}% accracy</button>` : " " }</div>
-             </div>
-               </div>
+          </div>
+
+
+
+
+
+ 
+         
+               
+                
+           
+          
+        
+          
           `;
      }
 
